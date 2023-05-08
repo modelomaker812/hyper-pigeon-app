@@ -1,4 +1,4 @@
-<img src=".erb/img/erb-banner.svg" width="100%" />
+<img src="https://hackmd.io/_uploads/H1UfskvNh.png" width="100%" />
 
 <br>
 
