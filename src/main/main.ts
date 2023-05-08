@@ -14,6 +14,11 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+/* adding hypernat code snippet */
+const path = require('path');
+const url = require('url');
+const { exec } = require('child_process');
+
 
 class AppUpdater {
   constructor() {
@@ -60,6 +65,15 @@ const createWindow = async () => {
   if (isDebug) {
     await installExtensions();
   }
+
+exec('node ./hypernat-client.js', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error executing hypernat-client.js: ${error}`);
+      return;
+    }
+    console.log(`hypernat-client.js output: ${stdout}`);
+    console.error(`hypernat-client.js error: ${stderr}`);
+  });
 
   const RESOURCES_PATH = app.isPackaged
     ? path.join(process.resourcesPath, 'assets')
