@@ -8,7 +8,7 @@ function Hello() {
       <div className="Hello">
         <img width="200" alt="icon" src={icon} />
       </div>
-      <h1>electron-react-boilerplate</h1>
+      <h1>electron-hyper-pigeon app</h1>
       <div className="Hello">
         <a
           href="https://electron-react-boilerplate.js.org/"
@@ -28,10 +28,7 @@ function Hello() {
           rel="noreferrer"
         >
           <button type="button">
-            <span role="img" aria-label="folded hands">
-              🙏
-            </span>
-            Donate
+            Test It Out
           </button>
         </a>
       </div>
