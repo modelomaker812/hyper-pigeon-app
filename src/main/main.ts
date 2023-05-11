@@ -19,6 +19,23 @@ const path = require('path');
 const url = require('url');
 const { exec } = require('child_process');
 
+function runHypernatClient(PEER, PORT) {
+  const command = `node ./hypernat-client.js ${PEER} ${PORT}`;
+
+  exec(command, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error executing hypernat-client.js: ${error}`);
+      return;
+    }
+    console.log(`hypernat-client.js output: ${stdout}`);
+    console.error(`hypernat-client.js error: ${stderr}`);
+  });
+}
+
+// Usage example:
+const peer = 'example';
+const port = 3003;
+runHypernatClient(peer, port);
 
 class AppUpdater {
   constructor() {
@@ -67,25 +84,6 @@ const createWindow = async () => {
   }
 
 const exec = require('child_process').exec;
-
-function runHypernatClient(PEER, PORT) {
-  const command = `node ./hypernat-client.js ${PEER} ${PORT}`;
-
-  exec(command, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error executing hypernat-client.js: ${error}`);
-      return;
-    }
-    console.log(`hypernat-client.js output: ${stdout}`);
-    console.error(`hypernat-client.js error: ${stderr}`);
-  });
-}
-
-// Usage example:
-const peer = 'example';
-const port = 3003;
-runHypernatClient(peer, port);
-
 
   const RESOURCES_PATH = app.isPackaged
     ? path.join(process.resourcesPath, 'assets')
